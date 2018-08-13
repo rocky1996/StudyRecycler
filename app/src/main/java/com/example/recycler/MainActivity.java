@@ -48,47 +48,47 @@ public class MainActivity extends AppCompatActivity {
             public void onItemLongClick(final int position) {
 //                Toast.makeText(MainActivity.this, "long click " + itemList.get(position), Toast.LENGTH_SHORT).show();
                 final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                String[] options = {"添加", "修改", "删除"};
+                String[] options = {"update", "add", "delete"};
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i) {
                             case 0:
                                 AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.dia_add_update, null);
-                                builder1.setView(view1);
-                                final EditText editText = view1.findViewById(R.id.editText);
-                                builder1.setPositiveButton("向后添加", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        list.add(position + 1, editText.getText().toString());
-                                        adapter.setDataList(list);
-                                    }
-                                });
-                                builder1.setNegativeButton("向前添加", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        list.add(position, editText.getText().toString());
-                                        adapter.setDataList(list);
-                                    }
-                                });
-                                builder1.show();
-                                break;
-                            case 1:
-                                AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
                                 View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.dia_add_update, null);
-                                builder2.setView(view2);
+                                builder1.setView(view2);
                                 final EditText editText2 = view2.findViewById(R.id.editText);
-                                builder2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                builder1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         list.set(position, editText2.getText().toString());
                                         adapter.setDataList(list);
                                     }
                                 });
-                                builder2.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                builder1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                    }
+                                });
+                                builder1.show();
+                                break;
+                            case 1:
+                                AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.dia_add_update, null);
+                                builder2.setView(view1);
+                                final EditText editText = view1.findViewById(R.id.editText);
+                                builder2.setPositiveButton("向后添加", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        list.add(position + 1, editText.getText().toString());
+                                        adapter.setDataList(list);
+                                    }
+                                });
+                                builder2.setNegativeButton("向前添加", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        list.add(position, editText.getText().toString());
+                                        adapter.setDataList(list);
                                     }
                                 });
                                 builder2.show();
