@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         itemList.add("五娃");
         itemList.add("六娃");
         itemList.add("七娃");
+        itemList.add("八娃");
+        itemList.add("九娃");
+        itemList.add("十娃");
+
 
         adapter.setDataList(itemList);
         recyclerView.setLayoutManager(linearLayoutManager);
